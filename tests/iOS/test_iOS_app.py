@@ -3,7 +3,7 @@ from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have, be
 
 
-@allure.title("iPhone 15 Pro")
+@allure.title("Test search on iPhone 15 Pro")
 def test_search_ios():
     with allure.step('Type search'):
         browser.element((AppiumBy.ACCESSIBILITY_ID, "Text Button")).click()
