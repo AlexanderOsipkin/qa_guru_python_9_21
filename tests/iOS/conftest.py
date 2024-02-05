@@ -1,16 +1,17 @@
 import pytest
-from appium.options.android import UiAutomator2Options
-from selene import browser
-from settings import user_credentials
 import os
+from settings import user_credentials
+from appium.options.ios import XCUITestOptions
+from selene import browser
 
 
 @pytest.fixture(scope='function', autouse=True)
 def mobile_management(request):
-    options = UiAutomator2Options().load_capabilities(
+    options = XCUITestOptions().load_capabilities(
         {
-            "platformVersion": "12.0",
-            "deviceName": "Samsung Galaxy S21",
+            "deviceName": "iPhone 15 Pro",
+            "platformName": "ios",
+            "platformVersion": "17",
             "app": "bs://sample.app",
             'bstack:options': {
                 "projectName": "First Python project",
