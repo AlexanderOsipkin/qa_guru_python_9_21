@@ -3,11 +3,11 @@ from appium.webdriver.common.appiumby import AppiumBy
 from selene import browser, have
 
 
-@allure.title("Test search on Samsung Galaxy S21")
-def test_search_android():
+@allure.title('Test search on Samsung Galaxy S21')
+def test_search_android(mobile_management_android):
     with allure.step('Type search'):
-        browser.element((AppiumBy.ACCESSIBILITY_ID, "Search Wikipedia")).click()
-        browser.element((AppiumBy.ID, "org.wikipedia.alpha:id/search_src_text")).type(
+        browser.element((AppiumBy.ACCESSIBILITY_ID, 'Search Wikipedia')).click()
+        browser.element((AppiumBy.ID, 'org.wikipedia.alpha:id/search_src_text')).type(
             'Appium'
         )
 

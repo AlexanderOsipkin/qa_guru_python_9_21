@@ -1,12 +1,13 @@
 import pytest
-import os
-from settings import user_credentials
+from appium import webdriver
 from appium.options.ios import XCUITestOptions
 from selene import browser
+from settings import user_credentials
+import os
 
 
 @pytest.fixture(scope='function', autouse=True)
-def mobile_management(request):
+def mobile_management_ios():
     options = XCUITestOptions().load_capabilities(
         {
             "deviceName": "iPhone 15 Pro",
@@ -22,9 +23,9 @@ def mobile_management(request):
             },
         }
     )
-
-    browser.config.driver_remote_url = user_credentials.remote_url
-    browser.config.driver_options = options
+    browser.config.driver = webdriver.Remote(
+        user_credentials.remote_url, options=options
+    )
     browser.config.timeout = float(os.getenv('timeout', '10.0'))
 
     yield

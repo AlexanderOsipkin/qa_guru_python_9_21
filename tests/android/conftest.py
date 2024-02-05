@@ -6,7 +6,7 @@ import os
 
 
 @pytest.fixture(scope='function', autouse=True)
-def mobile_management(request):
+def mobile_management_android():
     options = UiAutomator2Options().load_capabilities(
         {
             "platformVersion": "12.0",
